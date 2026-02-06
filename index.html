@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grounding Sheets | Product Information</title>
+  <meta name="description"
+    content="Grounding sheets designed for everyday comfort, simple setup, and a calmer wind-down routine." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1024;
+      --text: #0b0b0d;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --border: #e6e8ee;
+      --shadow: 0 14px 38px rgba(16, 17, 20, .08);
+      --radius: 18px;
+      --blue: #0b5ed7;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: inherit; }
+    img, video { max-width: 100%; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top notice */
+    .announce { background: #0b1024; color: #fff; padding: 10px 0; }
+    .announce__inner { display: flex; justify-content: center; font-weight: 700; font-size: 13px; }
+
+    /* Header */
+    .topbar { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--border); z-index: 50; }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #111; }
+    .brand__mark { width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(180deg, #1b74ff 0%, #0b5ed7 100%); }
+    .brand__name { font-weight: 900; font-size: 12px; letter-spacing: .12em; }
+    .brand__sub { font-weight: 900; font-size: 12px; opacity: .7; letter-spacing: .12em; }
+
+    .nav { display: flex; gap: 14px; }
+    .nav__link { text-decoration: none; color: #111; font-weight: 700; font-size: 14px; opacity: .8; }
+    .nav__link:hover { opacity: 1; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 800; border-radius: 999px; padding: 12px 18px; border: 1px solid rgba(0,0,0,.08); }
+    .btn--small { padding: 10px 14px; background: var(--blue); color: #fff; border-color: transparent; }
+    .btn--big { padding: 14px 22px; background: var(--blue); color: #fff; border-color: transparent; }
+    .btn--ghost { background: #fff; color: #111; }
+    .btn--outline { background: transparent; color: #111; }
+    .btn--mid { background: var(--blue); color: #fff; border-color: transparent; }
+
+    /* Hero */
+    .hero { padding: 56px 0; background: #f6f7fb; }
+    .hero__inner { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
+    .starsRow { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); padding: 8px 12px; border-radius: 999px; box-shadow: var(--shadow); }
+    .stars { letter-spacing: 2px; font-weight: 900; }
+    .starsText { font-size: 13px; color: #111; opacity: .85; }
+
+    .hero__title { font-size: 44px; margin: 10px 0 12px; line-height: 1.05; }
+    .hero__accent { color: var(--blue); }
+    .hero__subtitle { color: #334155; font-size: 16px; line-height: 1.55; }
+
+    .heroBullets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); padding: 10px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; box-shadow: var(--shadow); }
+    .pillDot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); display: inline-block; }
+
+    .hero__ctaRow { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .fineprint { font-size: 12px; color: #64748b; margin-top: 10px; }
+
+    .mediaCard { background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .mediaVideo { width: 100%; display: block; height: 360px; object-fit: cover; }
+    .mediaTag { position: absolute; left: 14px; bottom: 14px; background: rgba(0,0,0,.65); color: #fff; padding: 8px 10px; border-radius: 999px; font-weight: 800; font-size: 12px; }
+
+    /* Split */
+    .split { padding: 64px 0; background: #fff; }
+    .split__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: center; }
+    .kicker { font-weight: 900; color: #0b1024; letter-spacing: .02em; font-size: 13px; opacity: .8; }
+    .split__title { margin: 8px 0 10px; font-size: 34px; }
+    .split__p { color: #334155; line-height: 1.6; }
+    .splitList { display: grid; gap: 10px; margin: 14px 0 18px; }
+    .splitItem { font-weight: 700; color: #111; }
+
+    /* Cards */
+    .cards { padding: 64px 0; background: #f6f7fb; }
+    .cardsHead h2 { margin: 0 0 8px; }
+    .cardsHead p { margin: 0; color: #334155; }
+    .cardGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 20px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); }
+    .cardIcon { font-size: 22px; }
+    .card h3 { margin: 10px 0 6px; }
+    .card p { margin: 0; color: #334155; line-height: 1.55; }
+    .cardsCta { margin-top: 18px; }
+
+    /* How */
+    .how { padding: 64px 0; background: #fff; }
+    .howHead p { margin: 8px 0 0; color: #334155; }
+    .howSteps { display: grid; gap: 12px; margin-top: 18px; }
+    .howStep { display: flex; gap: 14px; background: #f6f7fb; border: 1px solid var(--border); padding: 16px; border-radius: 18px; }
+    .howNum { width: 34px; height: 34px; border-radius: 10px; background: var(--blue); color: #fff; display: grid; place-items: center; font-weight: 900; }
+    .howBody h3 { margin: 0 0 6px; }
+    .howBody p { margin: 0; color: #334155; line-height: 1.55; }
+
+    /* Reviews */
+    .reviews { padding: 64px 0; background: #f6f7fb; }
+    .reviewsTop { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .reviewsTitle { margin: 0; }
+    .liveTag { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); padding: 10px 12px; border-radius: 999px; box-shadow: var(--shadow); font-weight: 800; }
+    .dotLive { width: 10px; height: 10px; border-radius: 50%; background: #16a34a; display: inline-block; box-shadow: 0 0 0 6px rgba(22,163,74,.12); }
+
+    .reviewRail { display: grid; gap: 14px; margin-top: 18px; }
+    .reviewCard { display: flex; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 16px; box-shadow: var(--shadow); }
+    .reviewAvatarImg { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+    .reviewName { font-weight: 900; }
+    .reviewText { color: #334155; line-height: 1.55; margin: 8px 0; }
+    .reviewTime { font-size: 12px; color: #64748b; }
+
+    /* CTA band */
+    .ctaBand { padding: 54px 0; background: #0b1024; color: #fff; }
+    .ctaBand h2 { margin: 0 0 10px; }
+    .ctaSub { color: rgba(255,255,255,.8); margin: 0; }
+    .ctaRow { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .mini { margin-top: 14px; color: rgba(255,255,255,.72); font-size: 12px; }
+
+    /* Footer */
+    .footer { padding: 18px 0; background: #0b1024; color: rgba(255,255,255,.85); }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .footer__links a { color: rgba(255,255,255,.9); text-decoration: none; font-weight: 700; }
+    .footer__links a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero__inner { grid-template-columns: 1fr; }
+      .split__inner { grid-template-columns: 1fr; }
+      .cardGrid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .hero__title { font-size: 34px; }
+      .mediaVideo { height: 300px; }
+    }
+
+    /* =========================
+       COOKIE BAR (SCREENSHOT STYLE) + NO SCROLL
+    ========================= */
+    body.no-scroll { overflow: hidden !important; }
+
+    .cookieBar {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999999;
+      display: none;
+    }
+    .cookieBar.cookieBar--show { display: block; }
+
+    .cookieBar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+
+      padding: 18px 22px;
+      border-radius: 16px;
+
+      background: linear-gradient(180deg, #0f1730 0%, #0b1024 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+
+      color: #fff;
+    }
+
+    .cookieBar__left { flex: 1; min-width: 260px; }
+    .cookieBar__title { font-size: 20px; font-weight: 900; letter-spacing: 0.2px; margin-bottom: 6px; }
+    .cookieBar__desc {
+      font-size: 14px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 8px;
+      max-width: 720px;
+    }
+    .cookieBar__link { color: #fff; text-decoration: underline; font-weight: 700; font-size: 14px; opacity: .95; }
+
+    .cookieBar__actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+    }
+
+    .cbtn {
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      line-height: 1;
+      transition: transform 0.08s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      white-space: nowrap;
+    }
+    .cbtn:active { transform: translateY(1px); }
+
+    .cbtn--white {
+      background: #ffffff;
+      color: #0b2fff;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    }
+
+    .cbtn--blue {
+      background: linear-gradient(180deg, #1b74ff 0%, #0b5ed7 100%);
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(11, 94, 215, 0.35);
+    }
+
+    /* Customize panel */
+    .cookiePanel {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(10, 14, 34, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      color: #fff;
+    }
+
+    .cookiePanel__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .cookiePanel__row:last-child { border-bottom: none; }
+    .cookiePanel__label { font-weight: 900; margin-bottom: 2px; }
+    .cookiePanel__hint { font-size: 13px; color: rgba(255, 255, 255, 0.78); }
+    .cookiePanel__footer { display: flex; gap: 12px; justify-content: flex-end; padding-top: 12px; }
+
+    /* Toggle switch */
+    .switch { position: relative; display: inline-block; width: 54px; height: 32px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.18);
+      transition: 0.2s;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      top: 3px;
+      background: #fff;
+      transition: 0.2s;
+      border-radius: 50%;
+    }
+    .switch input:checked + .slider { background: rgba(27, 116, 255, 0.55); }
+    .switch input:checked + .slider:before { transform: translateX(22px); }
+
+    @media (max-width: 820px) {
+      .cookieBar__inner { flex-direction: column; align-items: stretch; }
+      .cookieBar__actions { justify-content: stretch; }
+      .cbtn { width: 100%; text-align: center; }
+      .cookiePanel__footer { flex-direction: column; }
+    }
+  </style>
+
+  <!-- <script type="text/javascript" src="https://inpmz.ttrk.io/track.js?rtkcmpid=697652d7cf6f4f9efd37098e"></script> -->
+</head>
+
+<body>
+
+  <!-- Top Notice -->
+  <div class="announce">
+    <div class="container announce__inner">
+      <span>Grounding Sheets • Simple Setup • Everyday Comfort</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <div class="brand__text">
+          <div class="brand__name">GROUNDING</div>
+          <div class="brand__sub">SHEETS</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="#overview">Overview</a>
+        <a class="nav__link" href="#highlights">Highlights</a>
+        <a class="nav__link" href="#how">How It Works</a>
+        <a class="nav__link" href="#reviews">Reviews</a>
+      </nav>
+
+      <a class="btn btn--small" href="#top">Shop Now</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container hero__inner">
+      <div class="hero__left">
+        <div class="starsRow" aria-label="Rating">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <div class="starsText"><b>Thousands</b> of customer reviews</div>
+        </div>
+
+        <h1 class="hero__title">
+          New Year Sale: Up to 60% Off + <span class="hero__accent">FREE Grounding Mat</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          A simple, at-home addition designed for everyday comfort and an easy wind-down routine.
+          Made to fit naturally into your bedroom setup with straightforward use and care.
+        </p>
+
+        <div class="heroBullets">
+          <div class="pill"><span class="pillDot" aria-hidden="true"></span> Easy to set up</div>
+          <div class="pill"><span class="pillDot" aria-hidden="true"></span> Comfortable for nightly use</div>
+          <div class="pill"><span class="pillDot" aria-hidden="true"></span> Designed for daily routines</div>
+        </div>
+
+        <div class="hero__ctaRow">
+          <a class="btn btn--big" href="#top">Shop Now</a>
+          <a class="btn btn--ghost" href="#how">Learn How It Works</a>
+        </div>
+
+        <p class="fineprint">
+          This page is informational and for general wellness routines. Individual experiences vary.
+        </p>
+      </div>
+
+      <div class="hero__right">
+        <div class="mediaCard">
+          <video class="mediaVideo" src="img/prod.mp4" autoplay loop muted playsinline></video>
+          <span class="mediaTag">Everyday Setup</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="split" id="overview">
+    <div class="container split__inner">
+      <div class="mediaCard">
+        <video class="mediaVideo" src="img/grounding.mp4" autoplay loop muted playsinline></video>
+        <span class="mediaTag">Everyday Setup</span>
+      </div>
+
+      <div class="split__text">
+        <div class="kicker">Comfort-first • Simple routine</div>
+        <h2 class="split__title">A practical add-on for your sleep environment</h2>
+        <p class="split__p">
+          Grounding sheets are designed to integrate into normal bedtime routines. They’re built for
+          comfort, easy placement, and straightforward use—without complicated steps.
+        </p>
+
+        <div class="splitList">
+          <div class="splitItem">🌿 Designed for everyday comfort and bedroom use</div>
+          <div class="splitItem">😴 Great for a calmer wind-down routine</div>
+          <div class="splitItem">✨ Simple setup that fits most standard beds</div>
+        </div>
+
+        <a class="btn btn--mid" href="#top">Shop Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="cards" id="highlights">
+    <div class="container">
+      <div class="cardsHead">
+        <h2>Everyday Highlights</h2>
+        <p>Designed to support comfort, consistency, and an easier nightly routine—without overcomplicating your setup.</p>
+      </div>
+
+      <div class="cardGrid">
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">🛏️</div>
+          <h3>Comfortable Sleep Setup</h3>
+          <p>Built to feel familiar as part of your normal bedding—so it’s easy to keep your routine consistent.</p>
+        </article>
+
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">🧘</div>
+          <h3>Relax-Friendly Routine</h3>
+          <p>Many people use grounding sheets as part of a calmer wind-down ritual—especially at the end of a busy day.</p>
+        </article>
+
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">⚡</div>
+          <h3>Simple & Practical</h3>
+          <p>Straightforward setup and use—made for everyday households and typical bedroom environments.</p>
+        </article>
+
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">🧼</div>
+          <h3>Easy Care</h3>
+          <p>Designed with regular use in mind—follow the included care instructions to keep it in good condition.</p>
+        </article>
+
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">🔌</div>
+          <h3>At-Home Use</h3>
+          <p>Fits naturally into your existing setup—no special skills needed. Just follow the setup steps included.</p>
+        </article>
+
+        <article class="card">
+          <div class="cardIcon" aria-hidden="true">🧩</div>
+          <h3>Works With Your Space</h3>
+          <p>Suitable for different room styles—minimal, modern, or cozy—without changing how your room feels.</p>
+        </article>
+      </div>
+
+      <div class="cardsCta">
+        <a class="btn btn--big" href="#top">Shop Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container how__inner">
+      <div class="howHead">
+        <h2>How It Works</h2>
+        <p>Grounding sheets are made to be used as part of your normal bedding routine. The setup is typically quick.</p>
+      </div>
+
+      <div class="howSteps">
+        <div class="howStep">
+          <div class="howNum">1</div>
+          <div class="howBody">
+            <h3>Place It on Your Bed</h3>
+            <p>Lay the sheet as directed (on top or fitted, depending on your model) for a familiar feel.</p>
+          </div>
+        </div>
+
+        <div class="howStep">
+          <div class="howNum">2</div>
+          <div class="howBody">
+            <h3>Follow the Included Setup</h3>
+            <p>Use the included instructions and accessories (if provided) to complete setup safely.</p>
+          </div>
+        </div>
+
+        <div class="howStep">
+          <div class="howNum">3</div>
+          <div class="howBody">
+            <h3>Make It a Routine</h3>
+            <p>Most people keep it simple—set it up once and use it as part of their regular nightly schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviewsTop">
+        <h2 class="reviewsTitle">Reviews</h2>
+
+        <div class="liveTag" aria-label="People viewing">
+          <span class="dotLive"></span>
+          <span><b>131</b> People are viewing this item</span>
+        </div>
+      </div>
+
+      <div class="reviewRail" aria-label="Customer reviews">
+        <article class="reviewCard">
+          <img class="reviewAvatarImg" src="./img/sarah.png" alt="Sarah" />
+          <div class="reviewBody">
+            <div class="reviewName">Sarah</div>
+            <p class="reviewText">
+              I've been using them for about a month now, and the difference I've felt has been incredible!
+            </p>
+            <div class="reviewTime">January 10, 2026 20:17 PM</div>
+          </div>
+        </article>
+
+        <article class="reviewCard">
+          <img class="reviewAvatarImg" src="./img/debra.png" alt="Debra C." />
+          <div class="reviewBody">
+            <div class="reviewName">Debra C.</div>
+            <p class="reviewText">
+              My sleep is so restful now. I don't wake up frequently at night. I feel rejuvenated!
+            </p>
+            <div class="reviewTime">January 10, 2026 20:17 PM</div>
+          </div>
+        </article>
+
+        <article class="reviewCard">
+          <img class="reviewAvatarImg" src="./img/rosie.png" alt="Rosie P." />
+          <div class="reviewBody">
+            <div class="reviewName">Rosie P.</div>
+            <p class="reviewText">
+              He swears the recovery is so much easier with grounding sheets. Ready for work in the morning!
+            </p>
+            <div class="reviewTime">January 10, 2026 20:17 PM</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY BAND -->
+  <section class="ctaBand" id="buy">
+    <div class="ctaBand__inner container">
+      <h2>Grounding Sheets</h2>
+      <p class="ctaSub">Everyday Comfort • Simple Setup • Bedroom-Friendly Routine</p>
+
+      <div class="ctaRow">
+        <a class="btn btn--big" href="#top">Shop Now</a>
+        <a class="btn btn--outline" href="#how">Learn More</a>
+      </div>
+
+      <div class="mini">
+        Use as directed. Keep away from children. Always follow included safety and setup instructions.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__links">
+        <a href="terms.html">Terms</a>
+        <span>|</span>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <div class="footer__note">© <span id="y"></span> Grounding Sheets</div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BAR (BOTTOM LIKE SCREENSHOT) -->
+  <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
+    <div class="cookieBar__inner">
+      <div class="cookieBar__left">
+        <div class="cookieBar__title">We use cookies</div>
+        <div class="cookieBar__desc">
+          We use essential cookies to make this site work. Optional cookies may help with analytics and marketing.
+          Please choose an option to continue.
+        </div>
+        <a class="cookieBar__link" href="privacy.html" target="_blank" rel="noopener">Read Cookie Policy</a>
+      </div>
+
+      <div class="cookieBar__actions">
+        <a href="#top"><button class="cbtn cbtn--white" id="cookieReject" type="button">Reject</button></a>
+        <a href="#top"><button class="cbtn cbtn--white" id="cookieCustomize" type="button">Customize</button></a>
+        <a href="#top"><button class="cbtn cbtn--blue" id="cookieAccept" type="button">Accept</button></a>
+      </div>
+    </div>
+
+    <!-- Customize panel -->
+    <div class="cookiePanel" id="cookiePanel" hidden>
+      <div class="cookiePanel__row">
+        <div>
+          <div class="cookiePanel__label">Essential cookies</div>
+          <div class="cookiePanel__hint">Required for the website to function.</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" checked disabled>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="cookiePanel__row">
+        <div>
+          <div class="cookiePanel__label">Analytics & marketing</div>
+          <div class="cookiePanel__hint">Helps measure performance and improve ads.</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="marketingToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="cookiePanel__footer">
+        <button class="cbtn cbtn--white" id="cookieCancel" type="button">Cancel</button>
+        <button class="cbtn cbtn--blue" id="cookieSave" type="button">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // =========================
+    // COOKIE CONSENT + NO SCROLL + LOAD MARKETING SCRIPTS
+    // =========================
+    (function () {
+      const STORAGE_KEY = "cookie_consent_v1";
+
+      const $ = (id) => document.getElementById(id);
+
+      function safeJsonParse(value) {
+        try { return JSON.parse(value); } catch { return null; }
+      }
+
+      function getConsent() {
+        return safeJsonParse(localStorage.getItem(STORAGE_KEY));
+      }
+
+      function setConsent(consent) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+      }
+
+      function lockScroll() {
+        document.body.classList.add("no-scroll");
+      }
+
+      function unlockScroll() {
+        document.body.classList.remove("no-scroll");
+      }
+
+      function injectScriptTag(src, async = true) {
+        const s = document.createElement("script");
+        s.src = src;
+        if (async) s.async = true;
+        document.head.appendChild(s);
+      }
+
+      function injectInlineScript(code) {
+        const s = document.createElement("script");
+        s.text = code;
+        document.head.appendChild(s);
+      }
+
+      function injectNoScriptImg(src) {
+        const ns = document.createElement("noscript");
+        const img = document.createElement("img");
+        img.height = 1;
+        img.width = 1;
+        img.style.display = "none";
+        img.src = src;
+        ns.appendChild(img);
+        document.body.appendChild(ns);
+      }
+
+      let marketingLoaded = false;
+
+      function loadMarketingIfAllowed(consent) {
+        if (!consent || !consent.marketing) return;
+        if (marketingLoaded) return;
+
+        // TikTok tracker
+        injectScriptTag("https://inpmz.ttrk.io/unilpclick.js?attribution=lastpaid&cookiedomain=https%3A%2F%2Fsaale.netlify.app%2F&cookieduration=90&defaultcampaignid=697652d7cf6f4f9efd37098e&regviewonce=false", true);
+
+        // Meta Pixel
+        injectInlineScript(`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '2351160615347281');
+          fbq('track', 'PageView');
+        `);
+
+        injectNoScriptImg("https://www.facebook.com/tr?id=2351160615347281&ev=PageView&noscript=1");
+
+        marketingLoaded = true;
+      }
+
+      function showBar() {
+        const bar = $("cookieBar");
+        if (bar) bar.classList.add("cookieBar--show");
+        lockScroll(); // stop scrolling until user decides
+      }
+
+      function hideBar() {
+        const bar = $("cookieBar");
+        if (bar) bar.classList.remove("cookieBar--show");
+        unlockScroll();
+      }
+
+      function openPanel() {
+        const panel = $("cookiePanel");
+        if (panel) panel.hidden = false;
+      }
+
+      function closePanel() {
+        const panel = $("cookiePanel");
+        if (panel) panel.hidden = true;
+      }
+
+      function initUI() {
+        const bar = $("cookieBar");
+        if (!bar) return;
+
+        const btnAccept = $("cookieAccept");
+        const btnReject = $("cookieReject");
+        const btnCustomize = $("cookieCustomize");
+        const btnCancel = $("cookieCancel");
+        const btnSave = $("cookieSave");
+        const marketingToggle = $("marketingToggle");
+
+        const existing = getConsent();
+        if (existing && marketingToggle) {
+          marketingToggle.checked = !!existing.marketing;
+        }
+
+        btnAccept && btnAccept.addEventListener("click", () => {
+          const consent = { necessary: true, marketing: true, ts: Date.now() };
+          setConsent(consent);
+          loadMarketingIfAllowed(consent);
+          closePanel();
+          hideBar();
+        });
+
+        btnReject && btnReject.addEventListener("click", () => {
+          const consent = { necessary: true, marketing: false, ts: Date.now() };
+          setConsent(consent);
+          closePanel();
+          hideBar();
+        });
+
+        btnCustomize && btnCustomize.addEventListener("click", () => {
+          openPanel();
+        });
+
+        btnCancel && btnCancel.addEventListener("click", () => {
+          const c = getConsent();
+          if (marketingToggle) marketingToggle.checked = !!(c && c.marketing);
+          closePanel();
+        });
+
+        btnSave && btnSave.addEventListener("click", () => {
+          const consent = { necessary: true, marketing: !!(marketingToggle && marketingToggle.checked), ts: Date.now() };
+          setConsent(consent);
+          loadMarketingIfAllowed(consent);
+          closePanel();
+          hideBar();
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initUI();
+
+        const consent = getConsent();
+        if (!consent) {
+          showBar();
+          return;
+        }
+
+        hideBar();
+        loadMarketingIfAllowed(consent);
+      });
+    })();
+  </script>
+</body>
+</html>
