@@ -600,174 +600,170 @@
   </div> -->
 
   <script>
-    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // =========================
-    // COOKIE CONSENT + NO SCROLL + LOAD MARKETING SCRIPTS
-    // =========================
-    (function () {
-      const STORAGE_KEY = "cookie_consent_v1";
+    // (function () {
+    //   const STORAGE_KEY = "cookie_consent_v1";
 
-      const $ = (id) => document.getElementById(id);
+    //   const $ = (id) => document.getElementById(id);
 
-      function safeJsonParse(value) {
-        try { return JSON.parse(value); } catch { return null; }
-      }
+    //   function safeJsonParse(value) {
+    //     try { return JSON.parse(value); } catch { return null; }
+    //   }
 
-      function getConsent() {
-        return safeJsonParse(localStorage.getItem(STORAGE_KEY));
-      }
+    //   function getConsent() {
+    //     return safeJsonParse(localStorage.getItem(STORAGE_KEY));
+    //   }
 
-      function setConsent(consent) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
-      }
+    //   function setConsent(consent) {
+    //     localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    //   }
 
-      function lockScroll() {
-        document.body.classList.add("no-scroll");
-      }
+    //   function lockScroll() {
+    //     document.body.classList.add("no-scroll");
+    //   }
 
-      function unlockScroll() {
-        document.body.classList.remove("no-scroll");
-      }
+    //   function unlockScroll() {
+    //     document.body.classList.remove("no-scroll");
+    //   }
 
-      function injectScriptTag(src, async = true) {
-        const s = document.createElement("script");
-        s.src = src;
-        if (async) s.async = true;
-        document.head.appendChild(s);
-      }
+    //   function injectScriptTag(src, async = true) {
+    //     const s = document.createElement("script");
+    //     s.src = src;
+    //     if (async) s.async = true;
+    //     document.head.appendChild(s);
+    //   }
 
-      function injectInlineScript(code) {
-        const s = document.createElement("script");
-        s.text = code;
-        document.head.appendChild(s);
-      }
+    //   function injectInlineScript(code) {
+    //     const s = document.createElement("script");
+    //     s.text = code;
+    //     document.head.appendChild(s);
+    //   }
 
-      function injectNoScriptImg(src) {
-        const ns = document.createElement("noscript");
-        const img = document.createElement("img");
-        img.height = 1;
-        img.width = 1;
-        img.style.display = "none";
-        img.src = src;
-        ns.appendChild(img);
-        document.body.appendChild(ns);
-      }
+    //   function injectNoScriptImg(src) {
+    //     const ns = document.createElement("noscript");
+    //     const img = document.createElement("img");
+    //     img.height = 1;
+    //     img.width = 1;
+    //     img.style.display = "none";
+    //     img.src = src;
+    //     ns.appendChild(img);
+    //     document.body.appendChild(ns);
+    //   }
 
-      let marketingLoaded = false;
+    //   let marketingLoaded = false;
 
-      function loadMarketingIfAllowed(consent) {
-        if (!consent || !consent.marketing) return;
-        if (marketingLoaded) return;
+    //   function loadMarketingIfAllowed(consent) {
+    //     if (!consent || !consent.marketing) return;
+    //     if (marketingLoaded) return;
 
-        // TikTok tracker
-        injectScriptTag("https://inpmz.ttrk.io/unilpclick.js?attribution=lastpaid&cookiedomain=https%3A%2F%2Fsaale.netlify.app%2F&cookieduration=90&defaultcampaignid=697652d7cf6f4f9efd37098e&regviewonce=false", true);
+    //     // TikTok tracker
+    //     injectScriptTag("https://inpmz.ttrk.io/unilpclick.js?attribution=lastpaid&cookiedomain=https%3A%2F%2Fsaale.netlify.app%2F&cookieduration=90&defaultcampaignid=697652d7cf6f4f9efd37098e&regviewonce=false", true);
 
-        // Meta Pixel
-        injectInlineScript(`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '2351160615347281');
-          fbq('track', 'PageView');
-        `);
+    //     // Meta Pixel
+    //     injectInlineScript(`
+    //       !function(f,b,e,v,n,t,s)
+    //       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    //       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    //       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    //       n.queue=[];t=b.createElement(e);t.async=!0;
+    //       t.src=v;s=b.getElementsByTagName(e)[0];
+    //       s.parentNode.insertBefore(t,s)}(window, document,'script',
+    //       'https://connect.facebook.net/en_US/fbevents.js');
+    //       fbq('init', '2351160615347281');
+    //       fbq('track', 'PageView');
+    //     `);
 
-        injectNoScriptImg("https://www.facebook.com/tr?id=2351160615347281&ev=PageView&noscript=1");
+    //     injectNoScriptImg("https://www.facebook.com/tr?id=2351160615347281&ev=PageView&noscript=1");
 
-        marketingLoaded = true;
-      }
+    //     marketingLoaded = true;
+    //   }
 
-      function showBar() {
-        const bar = $("cookieBar");
-        if (bar) bar.classList.add("cookieBar--show");
-        lockScroll(); // stop scrolling until user decides
-      }
+    //   function showBar() {
+    //     const bar = $("cookieBar");
+    //     if (bar) bar.classList.add("cookieBar--show");
+    //     lockScroll(); // stop scrolling until user decides
+    //   }
 
-      function hideBar() {
-        const bar = $("cookieBar");
-        if (bar) bar.classList.remove("cookieBar--show");
-        unlockScroll();
-      }
+    //   function hideBar() {
+    //     const bar = $("cookieBar");
+    //     if (bar) bar.classList.remove("cookieBar--show");
+    //     unlockScroll();
+    //   }
 
-      function openPanel() {
-        const panel = $("cookiePanel");
-        if (panel) panel.hidden = false;
-      }
+    //   function openPanel() {
+    //     const panel = $("cookiePanel");
+    //     if (panel) panel.hidden = false;
+    //   }
 
-      function closePanel() {
-        const panel = $("cookiePanel");
-        if (panel) panel.hidden = true;
-      }
+    //   function closePanel() {
+    //     const panel = $("cookiePanel");
+    //     if (panel) panel.hidden = true;
+    //   }
 
-      function initUI() {
-        const bar = $("cookieBar");
-        if (!bar) return;
+    //   function initUI() {
+    //     const bar = $("cookieBar");
+    //     if (!bar) return;
 
-        const btnAccept = $("cookieAccept");
-        const btnReject = $("cookieReject");
-        const btnCustomize = $("cookieCustomize");
-        const btnCancel = $("cookieCancel");
-        const btnSave = $("cookieSave");
-        const marketingToggle = $("marketingToggle");
+    //     const btnAccept = $("cookieAccept");
+    //     const btnReject = $("cookieReject");
+    //     const btnCustomize = $("cookieCustomize");
+    //     const btnCancel = $("cookieCancel");
+    //     const btnSave = $("cookieSave");
+    //     const marketingToggle = $("marketingToggle");
 
-        const existing = getConsent();
-        if (existing && marketingToggle) {
-          marketingToggle.checked = !!existing.marketing;
-        }
+    //     const existing = getConsent();
+    //     if (existing && marketingToggle) {
+    //       marketingToggle.checked = !!existing.marketing;
+    //     }
 
-        btnAccept && btnAccept.addEventListener("click", () => {
-          const consent = { necessary: true, marketing: true, ts: Date.now() };
-          setConsent(consent);
-          loadMarketingIfAllowed(consent);
-          closePanel();
-          hideBar();
-        });
+    //     btnAccept && btnAccept.addEventListener("click", () => {
+    //       const consent = { necessary: true, marketing: true, ts: Date.now() };
+    //       setConsent(consent);
+    //       loadMarketingIfAllowed(consent);
+    //       closePanel();
+    //       hideBar();
+    //     });
 
-        btnReject && btnReject.addEventListener("click", () => {
-          const consent = { necessary: true, marketing: false, ts: Date.now() };
-          setConsent(consent);
-          closePanel();
-          hideBar();
-        });
+    //     btnReject && btnReject.addEventListener("click", () => {
+    //       const consent = { necessary: true, marketing: false, ts: Date.now() };
+    //       setConsent(consent);
+    //       closePanel();
+    //       hideBar();
+    //     });
 
-        btnCustomize && btnCustomize.addEventListener("click", () => {
-          openPanel();
-        });
+    //     btnCustomize && btnCustomize.addEventListener("click", () => {
+    //       openPanel();
+    //     });
 
-        btnCancel && btnCancel.addEventListener("click", () => {
-          const c = getConsent();
-          if (marketingToggle) marketingToggle.checked = !!(c && c.marketing);
-          closePanel();
-        });
+    //     btnCancel && btnCancel.addEventListener("click", () => {
+    //       const c = getConsent();
+    //       if (marketingToggle) marketingToggle.checked = !!(c && c.marketing);
+    //       closePanel();
+    //     });
 
-        btnSave && btnSave.addEventListener("click", () => {
-          const consent = { necessary: true, marketing: !!(marketingToggle && marketingToggle.checked), ts: Date.now() };
-          setConsent(consent);
-          loadMarketingIfAllowed(consent);
-          closePanel();
-          hideBar();
-        });
-      }
+    //     btnSave && btnSave.addEventListener("click", () => {
+    //       const consent = { necessary: true, marketing: !!(marketingToggle && marketingToggle.checked), ts: Date.now() };
+    //       setConsent(consent);
+    //       loadMarketingIfAllowed(consent);
+    //       closePanel();
+    //       hideBar();
+    //     });
+    //   }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        initUI();
+    //   document.addEventListener("DOMContentLoaded", () => {
+    //     initUI();
 
-        const consent = getConsent();
-        if (!consent) {
-          showBar();
-          return;
-        }
+    //     const consent = getConsent();
+    //     if (!consent) {
+    //       showBar();
+    //       return;
+    //     }
 
-        hideBar();
-        loadMarketingIfAllowed(consent);
-      });
-    })();
+    //     hideBar();
+    //     loadMarketingIfAllowed(consent);
+    //   });
+    // })();
   </script>
 </body>
 </html>
